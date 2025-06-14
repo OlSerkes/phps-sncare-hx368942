@@ -1,0 +1,1215 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')
+
+//========================================================================================================================================================
+
+$bp-mobile: 479.98px
+$bp-tablet: 767.98px
+$bp-hd-desktop: 1024px
+$maxWidthContainer: 1023
+
+@mixin adaptiv-value($property, $startSize, $minSize)
+    $addSize: $startSize - $minSize
+    #{$property}: $startSize + px
+    @media (max-width: #{$maxWidthContainer + px})
+        #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}))
+
+@mixin adaptiv-size($property, $maxSize, $minSize, $maxWidth)
+    $addSize: $maxSize - $minSize
+    #{$property}: $maxSize + px
+    @media (max-width: #{$maxWidth + px})
+        #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}))
+
+@mixin fonts($fontSize, $lineHeight)
+    font:
+        size: $fontSize
+    line:
+        height: $lineHeight
+
+@mixin flex-box($justifyContent, $alignItems)
+    display: flex
+    justify-content: $justifyContent
+    align-items: $alignItems
+
+@mixin bg-image($url)
+    background:
+        image: $url
+    background:
+        repeat: no-repeat
+    background:
+        position: top center
+    background:
+        size: cover
+
+@mixin position($position, $zIndex)
+    position: $position
+    z-index: $zIndex
+
+@mixin fonts-color-gradient($deg, $color1, $percent1, $color2, $percent2)
+    background:
+        image: linear-gradient(#{$deg}deg, $color1 $percent1, $color2 $percent2)
+        clip: text
+    color: transparent
+    text:
+        align: center
+
+%flex-img
+    position: relative
+    z-index: 5
+    padding-bottom: 58%
+    img
+        width: 100%
+        height: 100%
+        position: absolute
+        z-index: 6
+        object-fit: cover
+        top: 0
+        left: 0
+
+#rkt-philips-sncrhx368942
+    font-family: 'Roboto', sans-serif
+    min-width: 320px
+    width: 100%
+    height: auto
+    position: relative
+    overflow: hidden
+    background: linear-gradient(180deg,rgba(32, 115, 125, 1) 0%, rgba(2, 37, 75, 1) 100%)
+    margin: 0 auto
+    h2, h3, h4, h5, h6, p
+        color: #fff
+        margin: 0
+        padding: 0
+        line-height: 1.1
+        text-align: left
+        text-transform: none
+    ul, ol
+        margin: 0
+        padding: 0
+        list-style-type: none
+    img
+        display: block
+        max-width: 100%
+        opacity: 1
+        margin: 0
+        &:hover
+            opacity: 1
+    video
+        width: 100%
+        height: 100%
+    h2
+        @include adaptiv-size("font-size", 55, 32, 1920)
+        font-weight: 700
+        text-align: center
+        &:has(+p)
+            margin-bottom: 15px
+    h3
+        @include adaptiv-size("font-size", 24, 14, 1920)
+        text-align: center
+        font-weight: 700
+    p
+        @include adaptiv-size("font-size", 20, 12, 1920)
+        color: #DBFFFC
+        font-weight: 400
+        text-align: center
+        &::first-letter
+            padding-left: 0
+    a
+        color: inherit
+        text-decoration: none
+
+.bc-description__content p:first-letter
+    padding-left: 0 !important
+
+#rkt-philips-sncrhx368942 .bc-description__content p
+    margin-bottom: 0
+
+#rkt-philips-sncrhx368942 .bc-description__content h3
+    text-align: left
+
+#rkt-philips-sncrhx368942 p::first-letter
+    padding-left: 0
+
+//========================================================================================================================================================
+#rkt-philips-sncrhx368942 .rkt-philips-sncrhx368942
+    &__container
+        box-sizing: border-box
+        max-width: 1920px
+        overflow: hidden
+        padding: 0
+        margin: 0 auto
+    &__bottom-block
+        @include position(relative, 5)
+
+#rkt-philips-sncrhx368942 .top-phl-sncrhx368942
+    &__inner
+        min-height: 300px
+        max-height: 1038px
+        height: 50vw
+        @include flex-box(space-between, center)
+        flex-direction: column
+        margin-top: 30px
+    &__header
+        flex: 0 0 auto
+        padding: 20px 12px
+        p
+            @include adaptiv-size("font-size", 36, 20, 1920)
+    &__body
+        @include position(relative, 5)
+        @include flex-box(center, center)
+        flex: 1 1 auto
+        height: clamp(69px, 80%, 930px)
+        position: relative
+    &__shadow
+        @include position(absolute, -1)
+        inset: 50% 0 auto 54%
+        transform: translateY(-50%)
+    &__vibro-bg
+        @include position(absolute, 0)
+        width: 90%
+        aspect-ratio: 1/0.52
+        top: 47%
+        left: 50%
+        transform: translate(-50%, -50%)
+    &__toothbrush
+        @include flex-box(flex-end, center)
+        @include position(relative, 99)
+    &__toothbrush-left
+        flex: 0 1 auto
+        @include adaptiv-size("padding-left", 261, 28, 1920)
+        z-index: 101
+    &__toothbrush-right
+        flex: 0 1 auto
+
+#rkt-philips-sncrhx368942 .vibro-frame
+    @include position(absolute, 0)
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    transition: opacity 0.5s ease-out
+    pointer-events: none
+    filter: sepia(0.4) saturate(1.6)
+
+#rkt-philips-sncrhx368942 .char-philips-sncrhx368942
+    &__header
+        padding: 20px 12px
+    &__body
+        @include position(relative, 5)
+        @include bg-image(url("../img/bg02_i.png"))
+        padding: 20px 12px
+    &__circle-wrapper
+        width: clamp(173px, 36vw, 674px)
+        margin: 0 auto
+        @include position(relative, 5)
+        aspect-ratio: 1/1.4
+        @include flex-box(flex-end, center)
+        flex-direction: column
+        overflow: hidden
+    &__shadow
+        @include position(absolute, 6)
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        opacity: 0
+        filter: blur(359px)
+        animation: splashShadow 3s ease-in-out infinite
+    &__brush-mask
+        @include position(absolute, 100)
+        height: 50%
+        width: auto
+        left: 20%
+        top: -1px
+        overflow: hidden
+    &__circle
+        @include position(relative, 6)
+        background-color: #02254B
+        border-radius: 50%
+        aspect-ratio: 1/1
+        width: 100%
+        height: auto
+        overflow: hidden
+    &__brush
+        bottom: 0
+        @include position(absolute, 99)
+        left: 20%
+    &__ice
+        position: absolute
+        top: 20%
+        transform: translateY(-50%)
+        opacity: 0.9
+    &__item
+        @include flex-box(flex-start, center)
+        @include position(absolute, 99)
+        gap: 5px
+        border: 1px solid #B0ECFF
+        @include adaptiv-size("border-radius", 52, 12, 1920)
+        background-color: #fff
+        @include adaptiv-size("padding-block", 5, 2, 1920)
+        @include adaptiv-size("padding-inline", 11, 3, 1920)
+        @include adaptiv-size("height", 79, 17, 1920)
+        transform: translateY(-50%)
+    &__icon
+        flex-grow: 0
+        flex-shrink: 0
+        @include adaptiv-size("flex-basis", 57, 14, 1920)
+    &__txt
+        p
+            @include adaptiv-size("font-size", 18, 5, 1920)
+            color: #02254B
+            font-weight: 700
+            text-align: left
+    &__line
+        @include position(absolute, 77)
+        transform: translateY(-50%)
+
+#rkt-philips-sncrhx368942 .ice-right
+    right: 0
+    transform: rotate(0deg)
+    animation: vibrateRotateRight 2s ease infinite
+    animation-delay: 0.2s
+    z-index: 44
+
+#rkt-philips-sncrhx368942 .ice-left
+    left: 0
+    z-index: 55
+    transform: rotate(-5deg)
+    animation: vibrateRotateLeft 2s ease infinite
+
+#rkt-philips-sncrhx368942 .line01
+    top: calc( 100% + 3px )
+    left: 96%
+
+#rkt-philips-sncrhx368942 .line02
+    top: calc( 100% + 3px )
+    left: 96%
+
+#rkt-philips-sncrhx368942 .brush-frame
+    transform: rotate(0deg)
+    transform-origin: top center
+    animation: brushRotate 3s ease-in-out infinite
+
+#rkt-philips-sncrhx368942 .char-item
+    animation-delay: 0.2s
+    &::before
+        content: ""
+        @include position(absolute, 7)
+    &_01
+        top: 25%
+        @include adaptiv-size("left", 445, 20, 1920)
+        right: 50%
+        @include adaptiv-size("width", 272, 70, 1920)
+        max-width: 272px
+        animation: charItemFloat1 5s linear infinite
+        &::before
+            @include bg-image(url("../img/line1.png"))
+            top: 100%
+            left: 100%
+            @include adaptiv-size("width", 130, 34, 1920)
+            @include adaptiv-size("height", 120, 32, 1920)
+            aspect-ratio: 1/1.1
+    &_02
+        top: 68%
+        @include adaptiv-size("left", 445, 20, 1920)
+        right: 50%
+        @include adaptiv-size("width", 271, 77, 1920)
+        max-width: 271px
+        animation: charItemFloat2 5s linear infinite
+        &::before
+            @include bg-image(url("../img/line2.png"))
+            top: 80%
+            left: calc( 100% + 5px )
+            transform: translateY(-50%)
+            @include adaptiv-size("width", 250, 60, 1920)
+            @include adaptiv-size("height", 78, 20, 1920)
+            animation: charItemMoove2 5s ease-in-out infinite
+    &_03
+        top: 24%
+        left: auto
+        @include adaptiv-size("right", 577, 62, 1920)
+        @include adaptiv-size("width", 219, 58, 1920)
+        max-width: 219px
+        animation: charItemFloat3 5s linear infinite
+        &::before
+            @include bg-image(url("../img/line3.png"))
+            top: calc( 100% + 5px )
+            right: 50%
+            @include adaptiv-size("width", 169, 44, 1920)
+            @include adaptiv-size("height", 207, 56, 1920)
+            animation: charItemMoove3 5s ease-in-out infinite
+    &_04
+        top: 47%
+        left: auto
+        @include adaptiv-size("right", 394, 21, 1920)
+        @include adaptiv-size("width", 263, 68, 1920)
+        max-width: 263px
+        animation: charItemFloat4 5s linear infinite
+        &::before
+            @include bg-image(url("../img/line4.png"))
+            top: calc( 100% + 5px )
+            right: 50%
+            @include adaptiv-size("width", 204, 47, 1920)
+            @include adaptiv-size("height", 231, 52, 1920)
+            animation: charItemMoove4 5s ease-in-out infinite
+
+@keyframes vibrateRotateLeft
+    0%, 100%
+        transform: rotate(-5deg)
+    50%
+        transform: rotate(-9deg)
+
+@keyframes vibrateRotateRight
+    0%, 100%
+        transform: rotate(0deg)
+    50%
+        transform: rotate(3deg)
+
+@keyframes splashShadow
+    0%, 100%
+        opacity: 0
+    50%
+        opacity: 0.9
+
+@keyframes brushRotate
+    0%, 100%
+        transform: rotate(0deg)
+    25%
+        transform: rotate(-3deg)
+    50%
+        transform: rotate(-1deg)
+    75%
+        transform: rotate(1deg)
+
+@keyframes charItemFloat1
+    0%, 100%
+        transform: translate(0, 0)
+    32%
+        transform: translate(0, -1px)
+    48%
+        transform: translate(-7px, 4px)
+    64%
+        transform: translate(4px, -6px)
+    80%
+        transform: translate(8px, 3px)
+
+@keyframes charItemFloat2
+    0%, 100%
+        transform: translate(0, 0)
+    16%
+        transform: translate(-7px, 7px)
+    32%
+        transform: translate(0, -2px)
+    48%
+        transform: translate(0, 1px)
+    64%
+        transform: translate(4px, 8px)
+    80%
+        transform: translate(-4px, -8px)
+
+@keyframes charItemFloat3
+    0%, 100%
+        transform: translate(0, 0)
+    16%
+        transform: translate(8px, 12px)
+    32%
+        transform: translate(0px, -1px)
+    48%
+        transform: translate(0px, -7px)
+    64%
+        transform: translate(0px, 3px)
+    80%
+        transform: translate(0px, 7px)
+
+@keyframes charItemFloat4
+    0%, 100%
+        transform: translate(0, 0)
+    32%
+        transform: translate(0px, -9px)
+    48%
+        transform: translate(0px, -8px)
+    64%
+        transform: translate(0px, -9px)
+    80%
+        transform: translate(0px, -8px)
+
+@keyframes charItemMoove2
+    0%, 100%
+        transform: rotate(0deg)
+    50%
+        transform: rotate(-5deg)
+
+@keyframes charItemMoove3
+    0%, 100%
+        transform: rotate(0deg)
+    50%
+        transform: rotate(-4deg)
+
+@keyframes charItemMoove4
+    0%, 100%
+        transform: rotate(0deg)
+    50%
+        transform: rotate(-2deg)
+
+#rkt-philips-sncrhx368942 .smart-philips-sncrhx368942
+    &__inner
+        padding: 15px 28px
+    &__items
+        display: grid
+        justify-content: center
+        gap: 40px
+        margin-top: 10px
+    &__item
+        border-radius: 25px
+        max-width: 366px
+        background: transparent
+        position: relative
+    &__image-box
+        @include position(relative, 5)
+    &__image
+        @include position(relative, 5)
+        margin-bottom: 25px
+        img
+            @include adaptiv-size("border-radius", 30, 25, 1920)
+            overflow: hidden
+            margin-top: -10px
+    &__image-overlay
+        @include position(absolute, 7)
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        @include adaptiv-size("border-radius", 30, 25, 1920)
+        pointer-events: none
+    &__icon
+        @include position(absolute, 8)
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        img
+            width: 90%
+            margin: 0 auto
+        &_s
+            img
+                width: 72%
+    &__text
+        padding: 15px 20px
+        margin-bottom: 20px
+        position: relative
+        display: inline-block
+        h3, p
+            text-align: left
+        h3
+            margin-bottom: 10px
+
+#rkt-philips-sncrhx368942 .nozzle-philips-sncrhx368942
+    &__title
+        @include position(relative, 100)
+        padding: 10px 12px 44px
+    &__body
+        @include position(relative, 5)
+    &__bg
+        @include position(absolute, 6)
+        transform: translateY(-50%)
+        &_left
+            top: 50%
+            left: 0
+            right: 50%
+        &_right
+            top: 62%
+            left: 55%
+            right: 0
+    &__flex
+        @include position(relative, 55)
+        @include flex-box(center, center)
+        flex-direction: column
+        gap: 5px
+        padding: 10px 0px
+    &__row
+        display: flex
+        @include position(relative, 55)
+        overflow: hidden
+        padding: 0 12px
+        &_rev
+            flex-direction: row-reverse
+            padding: 0 0 0 12px
+    &__image
+        @include position(relative, 66)
+        pointer-events: none
+    &__flash
+        @include position(absolute, 77)
+        transform: translateY(-50%)
+        opacity: 0
+    &__item
+        flex: 0 1 60%
+        padding: 10px 5px
+        @include position(absolute, 88)
+        top: 50%
+        transform: translateY(-50%)
+        &_top
+            left: 40%
+            right: 10px
+        &_bott
+            left: 10px
+            right: 40%
+        h3, p
+            text-align: left
+        h3
+            margin-bottom: 10px
+    &__icon
+        margin-bottom: 5px
+        img
+            width: 35px
+
+#rkt-philips-sncrhx368942 .flash-light
+    top: 63%
+    left: 7%
+    right: 88%
+    filter: blur(6px)
+    animation: flashLight 3s ease-out 1s infinite
+    img
+        width: 100%
+        height: 100%
+    &_01
+        animation-delay: 0.1s
+    &_02
+        animation-delay: 0.2s
+
+@keyframes flashLight
+    0%
+        opacity: 0
+    25%
+        opacity: 0.4
+    50%
+        opacity: 1
+    75%
+        opacity: 0.3
+    100%
+        opacity: 0
+
+#rkt-philips-sncrhx368942 .hand-shake
+    left: 30px
+    flex: 0 1 70%
+    animation: handshake 3s ease-out 1s infinite
+
+@keyframes handshake
+    0%
+        transform: rotate(-0.16deg)
+    50%
+        transform: rotate(-2.79deg)
+    100%
+        transform: rotate(-0.67deg)
+
+#rkt-philips-sncrhx368942 .bottom-block
+    &__image
+        @include position(absolute, 5)
+        left: 0
+        right: 71%
+        top: 71%
+        transform: translateY(-50%)
+        pointer-events: none
+
+#rkt-philips-sncrhx368942 .slider-philips-sncrhx368942
+    &__inner
+        padding: 10px 12px
+    &__title
+        padding: 0 49px
+        margin-bottom: 10px
+        transform: translateY(-100%)
+        transition: transform 0.3s ease
+    &__body
+        @include position(relative, 6)
+    &__slider
+        width: clamp(296px, 80vw, 946px)
+        max-width: 946px
+        margin: 0 auto
+    &__wrapper
+        @include position(relative, 8)
+    &__shadow
+        @include position(absolute, 5)
+        top: 50%
+        transform: translateY(-50%)
+        filter: blur(6px)
+    &__line
+        margin-top: -4px
+        img
+            margin: 0 auto
+    &__media
+        max-width: 424px
+        margin: 0 auto
+    &__text
+        padding: 28px 20px
+        margin: 11px 16px
+        @include adaptiv-size("border-radius", 40, 25, 1920)
+        background: #52A4AC
+        p
+            text-align: left
+
+#rkt-philips-sncrhx368942 .top-slider
+    &__swiper
+        @include adaptiv-size("width", 894, 272, 1920)
+        max-width: 894px
+        @include position(relative, 66)
+        margin: 33px auto 0
+
+#rkt-philips-sncrhx368942 .bottom-controls
+    &__block
+        @include adaptiv-size("width", 694, 258, 1920)
+        max-width: 694px
+        margin: 1px auto 0
+        @include position(relative, 7)
+    &__button
+        @include position(absolute, 8)
+        top: 20%
+        transform: translateY(-50%)
+        cursor: pointer
+        img
+            @include adaptiv-size("width", 100, 31, 1920)
+        &_prev
+            left: 17%
+        &_next
+            right: 17%
+        &:active
+            border-radius: 50%
+            aspect-ratio: 1/1
+            box-shadow: 0px 0px 22px rgba(255, 255, 255, 0.11)
+
+#rkt-philips-sncrhx368942 .shadow-l
+    left: 0
+    right: 90%
+
+#rkt-philips-sncrhx368942 .shadow-r
+    right: 0
+    left: 90%
+
+#rkt-philips-sncrhx368942 .mint-block
+    &__vibro
+        pointer-events: none
+        overflow: hidden
+
+#rkt-philips-sncrhx368942 .mint-frame
+    animation-duration: 6s
+    animation-timing-function: linear
+    animation-iteration-count: infinite
+    will-change: transform
+    @include position(absolute, 6)
+    width: 100%
+    height: auto
+    transform: translate(-50%, -50%)
+    &__frame1
+        display: none
+    &__frame2
+        display: none
+    &__frame3
+        left: 15%
+        top: 50%
+        @include adaptiv-size("width", 54, 16, 1920)
+        @include adaptiv-size("height", 86, 26, 1920)
+        animation-name: mintMove3
+        animation-delay: 0s
+    &__frame4
+        left: 10%
+        top: 58%
+        @include adaptiv-size("width", 66, 19, 1920)
+        @include adaptiv-size("height", 82, 25, 1920)
+        animation-name: mintMove4
+        animation-delay: 0.3s
+    &__frame5
+        top: 37%
+        right: 10%
+        @include adaptiv-size("width", 142, 43, 1920)
+        @include adaptiv-size("height", 103, 31, 1920)
+        animation-name: mintMove5
+        animation-delay: 0.6s
+    &__frame6
+        top: 38%
+        right: 5%
+        @include adaptiv-size("width", 28, 9, 1920)
+        @include adaptiv-size("height", 45, 14, 1920)
+        animation-name: mintMove6
+        animation-delay: 0.3s
+    &__frame7
+        display: none
+
+@keyframes mintMove3
+    0%, 100%
+        transform: translate(0, 0)
+    25%
+        transform: translate(-15px, 0)
+
+@keyframes mintMove4
+    0%, 100%
+        transform: translate(0, 0)
+    50%
+        transform: translate(20px, 0)
+
+@keyframes mintMove5
+    0%, 100%
+        transform: translate(0, 0)
+    25%
+        transform: translate(2px, 2px)
+    50%
+        transform: translate(-4px, 1px)
+    75%
+        transform: translate(7px, 7px)
+
+@keyframes mintMove6
+    0%, 100%
+        transform: translate(0, 0)
+    25%
+        transform: translate(10px, 0)
+    50%
+        transform: translate(0px, 10px)
+    75%
+        transform: translate(-10px, -10px)
+
+#rkt-philips-sncrhx368942 .mode-philips-sncrhx368942
+    &__inner
+        padding: 10px 0px
+    &__title
+        padding: 10px 66px 20px
+        @include position(relative, 150)
+    &__media
+        @include position(relative, 5)
+    &__image
+        @include position(relative, 99)
+        img
+            width: 80%
+            margin-left: auto
+    &__img-bg
+        @include position(absolute, 6)
+        top: 0
+        left: 0
+    &__shadow
+        @include position(absolute, 4)
+        top: 50%
+        left: 0
+        transform: translateY(-50%)
+        filter: blur(100px)
+        pointer-events: none
+        img
+            width: 80%
+            margin: 0 auto
+    &__vibro
+        pointer-events: none
+        overflow: hidden
+        aspect-ratio: 1/0.5
+        width: 90%
+        @include position(absolute, 6)
+        top: 60%
+        left: 50%
+        transform: translate(-50%, -50%)
+    &__items
+        margin: 15px auto
+        @include flex-box(center, flex-start)
+        flex-direction: column
+        gap: 22px
+        width: fit-content
+    &__item
+        display: flex
+        gap: 19px
+        align-items: center
+    &__icon
+        flex-grow: 0
+        flex-shrink: 0
+        @include adaptiv-value("flex-basis", 78, 50)
+    &__txt
+        flex: 0 1 auto
+        h3, p
+            text-align: left
+        h3
+            @include adaptiv-size("font-size", 30, 19, 1920)
+            margin-bottom: 12px
+        p
+            @include adaptiv-size("font-size", 26, 16, 1920)
+
+#rkt-philips-sncrhx368942 .mode-vibro
+    @include position(absolute, 6)
+    top: 0
+    left: 0
+    width: 100%
+    height: auto
+    opacity: 0
+    animation: modeFrames 2s steps(1) infinite
+    &__frame1
+        animation-delay: 0s
+    &__frame2
+        animation-delay: 0.3s
+    &__frame3
+        animation-delay: 0.6s
+    &__frame4
+        animation-delay: 0.9s
+    &__frame5
+        animation-delay: 1.2s
+    &__frame6
+        animation-delay: 1.4s
+
+@keyframes modeFrames
+    0%
+        opacity: 0.5
+    25%
+        opacity: 0
+    100%
+        opacity: 0
+
+//===========MEDIA=============================================================================================================================================
+@media (min-width: $bp-mobile)
+    #rkt-philips-sncrhx368942 .nozzle-philips-sncrhx368942
+        &__icon
+            img
+                width: 55px
+    #rkt-philips-sncrhx368942 .mint-frame
+        &__frame3
+            top: 55%
+        &__frame4
+            top: 65%
+        &__frame5
+            top: 43%
+        &__frame6
+            top: 45%
+
+@media (min-width: $bp-tablet)
+    #rkt-philips-sncrhx368942 .rkt-philips-sncrhx368942
+        &__container
+            h2
+                &:has(+p)
+                    margin-bottom: 6px
+    #rkt-philips-sncrhx368942 .top-phl-sncrhx368942
+        &__inner
+            margin-top: 50px
+        &__toothbrush-right
+            padding-right: 0
+        &__shadow
+            left: 60%
+    #rkt-philips-sncrhx368942 .char-philips-sncrhx368942
+        &__inner
+            padding-bottom: 114px
+        &__item
+            border-width: 5px
+            gap: 16px
+    #rkt-philips-sncrhx368942 .char-item
+        &_03
+            &::before
+                top: calc( 100% + 15px )
+        &_04
+            &::before
+                top: calc( 100% + 13px )
+    #rkt-philips-sncrhx368942 .smart-philips-sncrhx368942
+        &__inner
+            padding-block: 52px
+        &__items
+            grid-template-columns: repeat(3, minmax(220px, 366px))
+            @include adaptiv-size("gap", 50, 15, 1920)
+        &__text
+            h3
+                margin-bottom: 13px
+    #rkt-philips-sncrhx368942 .nozzle-philips-sncrhx368942
+        &__bg
+            &_right
+                top: 35%
+                left: 60%
+        &__flex
+            flex-direction: row
+            justify-content: flex-end
+            padding: 55px 0
+        &__row
+            flex: 0 1 70%
+            &:nth-child(1)
+                @include position(absolute, 66)
+                top: 0
+                right: 48%
+        &__item
+            opacity: 0
+            transform: translate(0%, -50%)
+            z-index: 55
+            &_top
+                top: 33%
+                left: 35%
+                max-width: 393px
+            &_bott
+                top: 73%
+                right: 45%
+                max-width: 455px
+        &__icon
+            margin-bottom: 10px
+    #rkt-philips-sncrhx368942 .slider-philips-sncrhx368942
+        &__wrapper
+            max-width: 894px
+            margin: 0 auto
+        &__title
+            margin-bottom: 60px
+        &__slider
+            width: clamp(296px, 60vw, 946px)
+        &__media
+            @include position(absolute, 88)
+            top: 55%
+            left: 25px
+            @include adaptiv-size("width", 424, 264, 1920)
+            opacity: 0
+            transform: translateX(0)
+        &__text
+            margin: 0
+    #rkt-philips-sncrhx368942 .shadow
+        &-l
+            left: 5%
+            right: 85%
+        &-r
+            right: 5%
+            left: 85%
+    #rkt-philips-sncrhx368942 .top-slider
+        &__swiper
+            width: 80%
+    #rkt-philips-sncrhx368942 .mint-frame
+        z-index: 100
+        &__frame1
+            display: block
+            left: 2.2%
+            top: 0
+            @include adaptiv-size("width", 84, 25, 1920)
+            @include adaptiv-size("height", 65, 20, 1920)
+            animation-name: mintMove1
+            animation-delay: 0s
+        &__frame2
+            display: block
+            left: 6.89%
+            top: 10%
+            @include adaptiv-size("width", 29, 9, 1920)
+            @include adaptiv-size("height", 45, 14, 1920)
+            animation-name: mintMove2
+            animation-delay: 0.2s
+        &__frame3
+            left: 14.75%
+            top: 8%
+            animation-delay: 0.4s
+        &__frame4
+            left: 11.52%
+            top: 25%
+            animation-delay: 0.6s
+        &__frame5
+            top: 55%
+            right: 15.8%
+            animation-delay: 0s
+        &__frame6
+            top: 59%
+            right: 10.7%
+            animation-delay: 0.2s
+        &__frame7
+            display: block
+            top: 50%
+            right: 6.6%
+            @include adaptiv-size("width", 84, 25, 1920)
+            @include adaptiv-size("height", 65, 20, 1920)
+            animation-name: mintMove7
+            animation-delay: 0.4s
+
+    @keyframes mintMove1
+        0%, 100%
+            transform: translate(0, 0)
+        50%
+            transform: translate(16px, -14px)
+        75%
+            transform: translate(-6px, 4px)
+
+    @keyframes mintMove2
+        0%, 100%
+            transform: translate(0, 0)
+        25%
+            transform: translate(-20px, 0)
+        50%
+            transform: translate(0, 20px)
+
+    @keyframes mintMove3
+        0%, 100%
+            transform: translate(0, 0)
+        25%
+            transform: translate(-30px, 0)
+
+    @keyframes mintMove4
+        0%, 100%
+            transform: translate(0, 0)
+        50%
+            transform: translate(40px, 0)
+
+    @keyframes mintMove6
+        0%, 100%
+            transform: translate(0, 0)
+        25%
+            transform: translate(20px, 0)
+        50%
+            transform: translate(0px, 20px)
+        75%
+            transform: translate(-20px, -20px)
+
+    @keyframes mintMove7
+        0%, 100%
+            transform: translate(0, 0)
+        50%
+            transform: translate(9px, 20px)
+        75%
+            transform: translate(-4px, -6px)
+
+    #rkt-philips-sncrhx368942 .mode-philips-sncrhx368942
+        &__inner
+            padding: 31px 0 70px
+        &__row
+            display: flex
+            flex-direction: row-reverse
+        &__media
+            flex: 0 1 65%
+        &__img-bg
+            left: -2%
+        &__shadow
+            filter: blur(100px)
+            right: 0
+            left: auto
+        &__vibro
+            top: 60%
+        &__items
+            @include position(relative, 100)
+            flex: 0 1 35%
+            margin: 15px 16px 15px 28px
+    #rkt-philips-sncrhx368942 .bottom-block
+        &__image
+            top: 60%
+
+@media (min-width: $bp-hd-desktop)
+    #rkt-philips-sncrhx368942 .rkt-philips-sncrhx368942
+        &__container
+            padding: 0
+    #rkt-philips-sncrhx368942 .char-philips-sncrhx368942
+        &__ice
+            top: 27%
+    #rkt-philips-sncrhx368942 .smart-philips-sncrhx368942
+        &__title
+            padding-bottom: 66px
+        &__item
+            border-radius: 30px
+        &__text
+            margin-bottom: 38px
+            padding: 15px 23px
+    #rkt-philips-sncrhx368942 .nozzle-philips-sncrhx368942
+        &__bg
+            &_right
+                top: 38%
+                left: 61%
+        &__flex
+            padding: 30px 0
+        &__row
+            flex: 0 1 65%
+        &__item
+            &_bott
+                top: 70%
+        &__icon
+            img
+                width: 80px
+    #rkt-philips-sncrhx368942 .slider-philips-sncrhx368942
+        &__slider
+            width: clamp(296px, 55vw, 946px)
+        &__line
+            margin-top: -10px
+        &__media
+            @include adaptiv-size("left", 150, 0, 1920)
+    #rkt-philips-sncrhx368942 .mode-philips-sncrhx368942
+        &__items
+            max-width: 420px
+            margin-left: 100px
+            gap: 35px
+        &__txt
+            h3
+                margin-bottom: 20px
+
+@media screen and (min-width: 1200px)
+    #rkt-philips-sncrhx368942 .mint-block
+        &__vibro
+            &_l
+                left: 20px
+            &_r
+                right: 93px
+    #rkt-philips-sncrhx368942 .bottom-block
+        &__image
+            top: 55%
+
+@media screen and (min-width: 1500px)
+    #rkt-philips-sncrhx368942 .bottom-block
+        &__image
+            top: 56%
+    #rkt-philips-sncrhx368942 .slider-philips-sncrhx368942
+        &__slider
+            width: clamp(296px, 50vw, 946px)
+        &__media
+            left: clamp(150px, calc(52.38vw - 635.7px), 327px)
+            right: 59%
+            width: 424px
+        &__text
+            padding: 45px 33px
+    #rkt-philips-sncrhx368942 .mint-block
+        &__vibro
+            &_r
+                top: 60%
+    #rkt-philips-sncrhx368942 .mode-philips-sncrhx368942
+        &__inner
+            padding-bottom: 139px
+        &__media
+            margin-top: -90px
+        &__img-bg
+            left: -10%
+        &__shadow
+            filter: blur(200px)
+            img
+                width: 90%
+        &__vibro
+            width: 100%
+        &__items
+            margin-left: 277px
+    #rkt-philips-sncrhx368942 .char-item
+        &_03
+            &::before
+                top: calc( 100% + 20px )
+        &_04
+            &::before
+                top: calc( 100% + 18px )
+
+@media (min-width: 1515.98px)
+    #rkt-philips-sncrhx368942 .nozzle-philips-sncrhx368942
+        &__bg
+            &_right
+                top: 33%
+                left: auto
+                max-width: 635px
+        &__flex
+            padding: 0
+        &__item
+            &_bott
+                top: 65%
+    #rkt-philips-sncrhx368942 .mint-frame
+        &__frame1
+            left: 4%
+            top: 0
+        &__frame2
+            left: 8%
+        &__frame3
+            left: 16%
+            top: 10%
+        &__frame4
+            left: 15%
+            top: 28%
+        &__frame5
+            top: 60%
+            right: 17%
+        &__frame6
+            top: 62%
+            right: 12%
+        &__frame7
+            top: 52%
+            right: 8%
+
+@media (min-width: 1920px)
+    #rkt-philips-sncrhx368942 .nozzle-philips-sncrhx368942
+        &__row
+            &:nth-child(1)
+                left: 330px
+
+//=============================================================================================================================================
+
+@media screen and (min-width: 768.98px) and (max-width: 1920px)
+    #rkt-philips-sncrhx368942 .nozzle-philips-sncrhx368942
+        &__row
+            &:nth-child(1)
+                left: calc(20px + (330 - 20) * ((100vw - 768px) / (1920 - 768)))
